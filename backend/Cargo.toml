@@ -4,3 +4,8 @@ version = "0.1.0"
 edition = "2024"
 
 [dependencies]
+# Web
+axum = { version = "0.7", features = ["multipart"] }
+
+# Async
+tokio = { version = "1", features = ["full"] }
