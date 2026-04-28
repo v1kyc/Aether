@@ -2,7 +2,7 @@ use axum::Json;
 use axum::http::StatusCode;
 use axum::response::{IntoResponse, Response};
 use serde::Serialize;
-use serde_json::{Value, json};
+use serde_json::{json};
 use thiserror::Error;
 
 // Error response
@@ -61,10 +61,12 @@ pub fn error_res(status: StatusCode, code: &str, message: String) -> Response {
     (status, Json(res)).into_response()
 }
 // Success response
-pub fn success_res<T: Serialize>(data: T) -> Json<Value> {
-    Json(json!({
+pub fn success_res<T: Serialize>(data: T) -> Response {
+    let res = json!({
         "ok": true,
         "data": data,
         "error": null
-    }))
+    });
+
+    (StatusCode::OK, Json(res)).into_response()
 }
