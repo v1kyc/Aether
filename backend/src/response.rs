@@ -1,8 +1,8 @@
-use axum::http::StatusCode;
 use axum::Json;
-use serde::Serialize;
+use axum::http::StatusCode;
 use axum::response::{IntoResponse, Response};
-use serde_json::{json, Value};
+use serde::Serialize;
+use serde_json::{Value, json};
 use thiserror::Error;
 
 // Error response
@@ -25,22 +25,26 @@ impl IntoResponse for AppError {
             AppError::NotFound => (
                 StatusCode::NOT_FOUND,
                 "NOT_FOUND",
-                "Resource not found".to_string()),
+                "Resource not found".to_string(),
+            ),
 
             AppError::InternalError => (
                 StatusCode::INTERNAL_SERVER_ERROR,
                 "INTERNAL_SERVER_ERROR",
-                "Internal server error".to_string()),
+                "Internal server error".to_string(),
+            ),
 
             AppError::PayloadTooLarge => (
                 StatusCode::PAYLOAD_TOO_LARGE,
                 "PAYLOAD_TOO_LARGE",
-                "Payload too large".to_string()),
+                "Payload too large".to_string(),
+            ),
 
             AppError::InvalidInput(message) => (
                 StatusCode::BAD_REQUEST,
                 "BAD_REQUEST",
-                format!("Invalid input: {}", message))
+                format!("Invalid input: {}", message),
+            ),
         };
         error_res(status, code, message)
     }
