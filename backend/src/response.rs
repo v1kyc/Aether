@@ -42,7 +42,7 @@ pub fn error_res(status: StatusCode, code: &str, message: String) -> Response {
     (status, Json(res)).into_response()
 }
 // Success response
-pub fn success<T: Serialize>(data: T) -> Json<Value> {
+pub fn success_res<T: Serialize>(data: T) -> Json<Value> {
     Json(json!({
         "ok": true,
         "data": data,
