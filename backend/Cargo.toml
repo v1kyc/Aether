@@ -4,8 +4,15 @@ version = "0.1.0"
 edition = "2024"
 
 [dependencies]
-# Web
-axum = { version = "0.7", features = ["multipart"] }
+# Web framework
+axum = { version = "0.8", features = ["multipart"] }
 
-# Async
+# Async runtime
 tokio = { version = "1", features = ["full"] }
+
+# Serialisation
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+
+# Error handling
+thiserror = "2"
