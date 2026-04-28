@@ -1,1 +1,11 @@
-/target
+# Rust
+target/
+**/*.rs.bk
+
+# Environment
+.env
+
+# Database
+*.db
+*.db-shm
+*.db-wal
