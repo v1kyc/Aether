@@ -1,6 +1,6 @@
 <div align="center">
 
-# 💎 Prism
+# 💎 Prism Toolbox
 
 **A self-hosted, open-source converter and utility toolbox.**  
 Built with Angular, Rust, and Docker. No telemetry. No accounts. Just tools.
@@ -36,4 +36,4 @@ Contributions are welcome! Open an issue first for significant changes, then:
 
 ---
 
-<sub>© 2026 v1kyc — Licensed under MIT</sub>
+<sub>© 2026 v1kyc & Radek - Licensed under MIT</sub>
