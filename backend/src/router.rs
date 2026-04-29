@@ -1,6 +1,6 @@
+use crate::tools::hashing::bcrypt::{hash_handler, verify_handler};
 use axum::Router;
 use axum::routing::{get, post};
-use crate::tools::hashing::bcrypt::{hash_handler, verify_handler};
 
 pub fn router() -> Router {
     Router::new()

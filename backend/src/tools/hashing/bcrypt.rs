@@ -1,8 +1,8 @@
+use crate::response::{AppError, success_res};
 use axum::Json;
 use axum::response::Response;
 use bcrypt::{hash, verify};
 use serde::Deserialize;
-use crate::response::{success_res, AppError};
 
 const MIN_COST: u32 = 4;
 const MAX_COST: u32 = 31;
@@ -31,13 +31,21 @@ pub struct VerifyRequest {
 
 pub async fn hash_handler(Json(body): Json<HashRequest>) -> Result<Response, AppError> {
     if body.password.is_empty() {
-        return Err(AppError::InvalidInput("Password cannot be empty".to_string()));
+        return Err(AppError::InvalidInput(
+            "Password cannot be empty".to_string(),
+        ));
     }
     if body.password.len() > MAX_PASSWORD_LEN {
-        return Err(AppError::InvalidInput(format!("Password cannot exceed {} bytes", MAX_PASSWORD_LEN)));
+        return Err(AppError::InvalidInput(format!(
+            "Password cannot exceed {} bytes",
+            MAX_PASSWORD_LEN
+        )));
     }
     if body.cost < MIN_COST || body.cost > MAX_COST {
-        return Err(AppError::InvalidInput(format!("Cost must be between {} and {}", MIN_COST, MAX_COST)));
+        return Err(AppError::InvalidInput(format!(
+            "Cost must be between {} and {}",
+            MIN_COST, MAX_COST
+        )));
     }
     let hashed = bcrypt_hash(&body.password, body.cost)?;
     Ok(success_res(hashed))
@@ -45,10 +53,15 @@ pub async fn hash_handler(Json(body): Json<HashRequest>) -> Result<Response, App
 
 pub async fn verify_handler(Json(body): Json<VerifyRequest>) -> Result<Response, AppError> {
     if body.password.is_empty() || body.hash.is_empty() {
-        return Err(AppError::InvalidInput("Password and hash cannot be empty".to_string()));
+        return Err(AppError::InvalidInput(
+            "Password and hash cannot be empty".to_string(),
+        ));
     }
     if body.password.len() > MAX_PASSWORD_LEN {
-        return Err(AppError::InvalidInput(format!("Password cannot exceed {} bytes", MAX_PASSWORD_LEN)));
+        return Err(AppError::InvalidInput(format!(
+            "Password cannot exceed {} bytes",
+            MAX_PASSWORD_LEN
+        )));
     }
     let valid = bcrypt_verify(&body.password, &body.hash)?;
     Ok(success_res(valid))
