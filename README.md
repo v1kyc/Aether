@@ -36,6 +36,4 @@ Contributions are welcome! Open an issue first for significant changes, then:
 
 ---
 
-## 📄 License
-
-MIT — see [LICENSE](LICENSE) for details.
+<sub>© 2026 v1kyc — Licensed under MIT</sub>
