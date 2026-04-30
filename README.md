@@ -20,7 +20,7 @@ Built with Angular, Rust, and Docker. No telemetry. No accounts. Just tools.
 ## 🛠️ Tools
 
 ### 🖼️ Images
-Convert images to **WebP**, resize to custom dimensions, and more — all processed server-side in Rust. Upload any common format (PNG, JPEG, GIF) and get back an optimised file instantly.
+Convert images to desired format, resize to custom dimensions, and more — all processed server-side in Rust. Upload any common format (PNG, JPEG, GIF) and get back an optimised file instantly.
 
 ### 🎵 Audio
 Convert between common audio formats including MP3, WAV, FLAC, and OGG. Your files never leave your server.
