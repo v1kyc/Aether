@@ -6,9 +6,12 @@ edition = "2024"
 [dependencies]
 # Web framework
 axum = { version = "0.8", features = ["multipart"] }
+tower-http = { version = "0.6.8", features = ["trace", "cors"] }
+tower = "0.5.3"
 
 # Async runtime
 tokio = { version = "1", features = ["full"] }
+async-trait = "0.1.89"
 
 # Serialisation
 serde = { version = "1", features = ["derive"] }
@@ -19,5 +22,3 @@ thiserror = "2"
 
 # Hashing
 bcrypt = "0.19.0"
-tower-http = { version = "0.6.8", features = ["trace", "cors"] }
-tower = "0.5.3"
