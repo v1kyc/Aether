@@ -27,6 +27,6 @@ async fn extract<T: DeserializeOwned>(
 
         Ok((opts, file))
     } else {
-        return Err(AppError::InvalidInput("Missing options field".to_string()));
+        Err(AppError::InvalidInput("Missing options field".to_string()))
     }
 }
