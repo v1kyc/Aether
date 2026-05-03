@@ -1,8 +1,8 @@
-use axum::extract::DefaultBodyLimit;
 use axum::Router;
+use axum::extract::DefaultBodyLimit;
 use axum::routing::{get, post};
-use tower_http::{trace::TraceLayer,cors::CorsLayer,};
 use tower::ServiceBuilder;
+use tower_http::{cors::CorsLayer, trace::TraceLayer};
 
 const MAX_BODY_SIZE: usize = 1024 * 1024 * 10;
 pub fn router() -> Router {
@@ -13,7 +13,7 @@ pub fn router() -> Router {
             ServiceBuilder::new()
                 .layer(TraceLayer::new_for_http())
                 .layer(CorsLayer::permissive())
-                .layer(DefaultBodyLimit::max(MAX_BODY_SIZE))
+                .layer(DefaultBodyLimit::max(MAX_BODY_SIZE)),
         )
 }
 async fn health() -> &'static str {

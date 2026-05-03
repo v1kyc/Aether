@@ -1,8 +1,8 @@
 // Imports
 use crate::router::router;
 mod router;
-mod tools;
 mod rxtx;
+mod tools;
 
 #[tokio::main]
 async fn main() {
