@@ -3,22 +3,9 @@ use axum::http::StatusCode;
 use axum::response::{IntoResponse, Response};
 use serde::Serialize;
 use serde_json::json;
-use thiserror::Error;
-
+use crate::rxtx::AppError;
 // Error response
-#[derive(Debug, Error)]
-pub enum AppError {
-    // Server errors
-    #[error("Not found")]
-    NotFound,
-    #[error("Internal error")]
-    InternalError,
-    // IO Errors
-    #[error("Payload too large")]
-    PayloadTooLarge,
-    #[error("Invalid input: {0}")]
-    InvalidInput(String),
-}
+
 impl IntoResponse for AppError {
     fn into_response(self) -> Response {
         let (status, code, message) = match self {
