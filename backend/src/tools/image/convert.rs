@@ -28,6 +28,16 @@ pub async fn convert(mut multipart: Multipart) -> Result<Response, AppError> {
         .decode()
         .map_err(|_| AppError::InvalidInput("Failed to decode image".to_string()))?;
 
-    img.save("recieved.jpg").map_err(|_| AppError::InvalidInput("Failed to save image".to_string()))?;
-    todo!()
+    let mut output = Vec::new();
+    let mut cursor = Cursor::new(&mut output);
+    img.write_to(&mut cursor, opts.target.into())
+        .map_err(|_| AppError::InternalError)?;
+    drop(cursor);
+
+    let mime = opts.target.mime_type();
+
+    Ok(Response::builder()
+        .header("Content-Type", mime)
+        .body(output.into())
+        .unwrap())
 }
