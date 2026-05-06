@@ -3,7 +3,7 @@ use axum::extract::Multipart;
 use axum::extract::multipart::Field;
 use serde::de::DeserializeOwned;
 
-async fn extract<T: DeserializeOwned>(
+pub async fn extract<T: DeserializeOwned>(
     multipart: &'_ mut Multipart,
 ) -> Result<(T, Field<'_>), AppError> {
     let options = multipart
