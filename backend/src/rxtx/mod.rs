@@ -1,7 +1,8 @@
 use thiserror::Error;
 
 pub mod multipart;
-pub mod response;
+mod response;
+pub use response::success_res;
 
 #[derive(Debug, Error)]
 pub enum AppError {
