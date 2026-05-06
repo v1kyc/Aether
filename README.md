@@ -1,39 +1,56 @@
 <div align="center">
 
-# 💎 Prism Toolbox
-
-**A self-hosted, open-source converter and utility toolbox.**  
-Built with Angular, Rust, and Docker. No telemetry. No accounts. Just tools.
-
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Rust](https://img.shields.io/badge/Rust-1.78+-orange.svg)](https://www.rust-lang.org/)
 [![Angular](https://img.shields.io/badge/Angular-18+-red.svg)](https://angular.dev/)
 [![Docker](https://img.shields.io/badge/Docker-Compose-2496ED?logo=docker&logoColor=white)](https://docs.docker.com/compose/)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md)
 
-> ⚠️ Work in progress. Not ready for production use.
+```
+▄▄▄▄▄▄▄   ▄▄▄▄▄▄▄   ▄▄▄▄▄  ▄▄▄▄▄▄▄ ▄▄▄      ▄▄▄ 
+███▀▀███▄ ███▀▀███▄  ███  █████▀▀▀ ████▄  ▄████ 
+███▄▄███▀ ███▄▄███▀  ███   ▀████▄  ███▀████▀███ 
+███▀▀▀▀   ███▀▀██▄   ███     ▀████ ███  ▀▀  ███ 
+███       ███  ▀███ ▄███▄ ███████▀ ███      ███ 
+                    T O O L B O X
+```
+
+**A self-hosted, open-source converter and utility toolbox.**  
+Built with Angular and Rust, No telemetry. No accounts. Just Tools
 
 </div>
 
 ---
 
-## 🛠️ Tools
+## What is Prism?
 
-### 🖼️ Images
-Convert images to desired format, resize to custom dimensions, and more — all processed server-side in Rust. Upload any common format (PNG, JPEG, GIF) and get back an optimised file instantly.
+Most online conversion tools are slow, plastered with ads, and quietly harvest your files. Prism runs entirely on **your** hardware. Upload a file, get a file back — nothing leaves your server.
 
-### 🎵 Audio
-Convert between common audio formats including MP3, WAV, FLAC, and OGG. Your files never leave your server.
+<sub>⚠️ The project is in early state of development</sub>
 
 ---
 
-## 🤝 Contributing
+## 🛠️ Planned Tools
 
-Contributions are welcome! Open an issue first for significant changes, then:
+### 🖼️ Image Processing
+Convert between formats, resize, and optimise — all server-side in Rust.
 
-1. Fork and create a branch: `git checkout -b feature/my-new-tool`
-2. Commit your changes and open a Pull Request
+### 🎵 Audio Conversion
+Transcode between common audio formats with zero cloud dependency.
+
+> More tools will be added as the project matures.
 
 ---
 
-<sub>© 2026 v1kyc & Radek - Licensed under MIT</sub>
+## 🗺️ Roadmap
+
+- [x] Image conversion (PNG, JPEG, WEBP, GIF)
+- [ ] Audio conversion (MP3, WAV, FLAC, OGG)
+- [ ] Frontend UI
+- [ ] Docker Compose setup
+- [ ] PDF tools
+- [ ] Batch processing
+
+---
+
+<sub>Built by <a href="https://github.com/v1kyc">v1kyc</a> & Radek · © 2026 · <a href="LICENSE">MIT License</a></sub>
